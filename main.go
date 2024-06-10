@@ -97,11 +97,6 @@ func returnBook(c *gin.Context) {
 		return
 	}
 
-	if book.Quantity <= 0 {
-		c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Book not available."})
-		return
-	}
-
 	book.Quantity += 1
 	c.IndentedJSON(http.StatusOK, book)
 }
